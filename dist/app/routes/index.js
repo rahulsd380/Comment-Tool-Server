@@ -5,7 +5,7 @@ const comment_route_1 = require("../modules/comment/comment.route");
 const router = (0, express_1.Router)();
 const moduleRoutes = [
     {
-        path: "comments",
+        path: "/comments",
         route: comment_route_1.CommentRoutes,
     },
 ];
