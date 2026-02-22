@@ -8,7 +8,7 @@ const express_1 = __importDefault(require("express"));
 const comment_controller_1 = require("./comment.controller");
 const router = express_1.default.Router();
 router.post("/add", comment_controller_1.CommentControllers.createComment);
-router.get("/", comment_controller_1.CommentControllers.getComments);
+router.get("/:projectId", comment_controller_1.CommentControllers.getCommentsByProject);
 router.post("/:commentId/reply", comment_controller_1.CommentControllers.addReply);
 router.patch("/:commentId/status", comment_controller_1.CommentControllers.updateStatus);
 router.delete("/:commentId", comment_controller_1.CommentControllers.deleteComment);

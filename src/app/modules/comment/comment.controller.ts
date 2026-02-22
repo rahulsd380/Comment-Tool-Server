@@ -20,11 +20,12 @@ const createComment = catchAsync(async (req, res) => {
 /**
  * Get comments for project + page
  */
-const getComments = catchAsync(async (req, res) => {
-  const { projectId, pageUrl } = req.query;
+const getCommentsByProject = catchAsync(async (req, res) => {
+  const { projectId } = req.params;
+  const { pageUrl } = req.query;
 
   const result = await CommentServices.getCommentsByProject(
-    projectId as string,
+    projectId,
     pageUrl as string
   );
 
@@ -95,7 +96,7 @@ const deleteComment = catchAsync(async (req, res) => {
 
 export const CommentControllers = {
   createComment,
-  getComments,
+  getCommentsByProject,
   addReply,
   updateStatus,
   deleteComment,

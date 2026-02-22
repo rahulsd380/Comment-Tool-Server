@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.post("/add", CommentControllers.createComment);
 
-router.get("/", CommentControllers.getComments);
+router.get("/:projectId", CommentControllers.getCommentsByProject);
 
 router.post("/:commentId/reply", CommentControllers.addReply);
 

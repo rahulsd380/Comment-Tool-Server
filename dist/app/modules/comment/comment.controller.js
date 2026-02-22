@@ -32,8 +32,9 @@ const createComment = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, 
 /**
  * Get comments for project + page
  */
-const getComments = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { projectId, pageUrl } = req.query;
+const getCommentsByProject = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { projectId } = req.params;
+    const { pageUrl } = req.query;
     const result = yield comment_services_1.CommentServices.getCommentsByProject(projectId, pageUrl);
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_1.default.OK,
@@ -85,7 +86,7 @@ const deleteComment = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, 
 }));
 exports.CommentControllers = {
     createComment,
-    getComments,
+    getCommentsByProject,
     addReply,
     updateStatus,
     deleteComment,
